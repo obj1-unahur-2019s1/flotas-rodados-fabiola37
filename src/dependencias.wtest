@@ -1,0 +1,57 @@
+import rodados.*
+import dependencias.*
+
+test "test de dependencias" {
+
+	test "deportes y deportes"{
+		
+		var cachito = new Corsa()
+		cachito.color ("rojo")
+		
+		var corsaAzul = new Corsa()
+		corsaAzul.color("azul")
+		
+		var corsaVerde = new Corsa()
+		corsaVerde.color("verde")
+		
+		var kwid = new RenaultKwid() 
+		
+		var autoEsp = new AutosEspeciales()
+		autoEsp.capacidad(5)
+		autoEsp.velocidadMaxima(160)
+		autoEsp.peso(1200)
+		autoEsp.color("beige")
+		
+		var kwid1 = new RenaultKwid()
+		var kwid2 = new RenaultKwid() 
+		var kwid3 = new  RenaultKwid()
+		kwid3.tanqueAdicional(false)
+		
+	 	var cultura = new Dependencia()
+	 	cultura.empleados(31)
+	 	cultura.agregarAFlota(cachito)
+	 	cultura.agregarAFlota(kwid1)
+	 	cultura.agregarAFlota(kwid2)
+	 	cultura.agregarAFlota(kwid3)
+	 	cultura.agregarAFlota(trafic)
+	 	trafic.interior(popular)
+	 	trafic.motor(bataton)
+	 	
+	 	
+	 	var deportes = new Dependencia()
+	 	deportes.empleados(45)
+	 	deportes.agregarAFlota(cachito)
+	 	deportes.agregarAFlota(corsaAzul)
+	 	deportes.agregarAFlota(corsaVerde)
+		deportes.agregarAFlota(kwid)
+	 	deportes.agregarAFlota(autoEsp)
+	 	
+	 	
+	 	
+	}
+	
+		
+		
+	}
+
+}
