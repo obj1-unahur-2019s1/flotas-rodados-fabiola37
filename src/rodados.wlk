@@ -9,10 +9,17 @@ class RenaultKwid {
 	var property tanqueAdicional = true
 	
 	method combustible(){ return "gas" }
-	method capasidad(){ return if(tanqueAdicional) { return 3} else { return 4 }}
+	method capacidad(){ return if(tanqueAdicional) { return 3} else { return 4 }}
 	method velocidadMaxima(){ return if(tanqueAdicional){return 120 } else {return 110} }
 	method peso() { return if(tanqueAdicional){ return 1350} else { return 1200 }}
 	method municipalidadColor() { return "azul"}
+}
+class AutosEspeciales { 
+	var property velocidadMaxima = 0
+	var property capacidad = 0
+	var property peso = 0
+	var property color
+	
 }
 object trafic {
 	var property motor

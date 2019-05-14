@@ -1,12 +1,11 @@
 import rodados.*
 import dependencias.*
+import pedidos.*
 
-test "test de dependencias" {
-
-	test "deportes y deportes"{
-		
-		var cachito = new Corsa()
-		cachito.color ("rojo")
+describe " flota de rodados"{
+	const cachito = new Corsa(color = "rojo")
+	
+	test "dependencias y deportes"{
 		
 		var corsaAzul = new Corsa()
 		corsaAzul.color("azul")
@@ -27,7 +26,7 @@ test "test de dependencias" {
 		var kwid3 = new  RenaultKwid()
 		kwid3.tanqueAdicional(false)
 		
-	 	var cultura = new Dependencia()
+	 	const cultura = new Dependencia()
 	 	cultura.empleados(31)
 	 	cultura.agregarAFlota(cachito)
 	 	cultura.agregarAFlota(kwid1)
@@ -38,13 +37,45 @@ test "test de dependencias" {
 	 	trafic.motor(bataton)
 	 	
 	 	
-	 	var deportes = new Dependencia()
+	 	const deportes = new Dependencia()
 	 	deportes.empleados(45)
 	 	deportes.agregarAFlota(cachito)
 	 	deportes.agregarAFlota(corsaAzul)
 	 	deportes.agregarAFlota(corsaVerde)
 		deportes.agregarAFlota(kwid)
 	 	deportes.agregarAFlota(autoEsp)
+	 	assert.equals(6450, deportes.pesoTotal())
+	 	assert.equals(true, deportes.estaBienEquipada())
+	 	assert.equals(7, deportes.capacidadTotalEnColor("azul"))
+	 	assert.equals("beige", deportes.colorDelRodadoMasRapido())
+	 	assert.equals(true, deportes.esGrande())
+	 	assert.equals(25, deportes.capacidadFalatantes())
+	 	}
+	 
+	 test "test de pedidos"{
+	 	
+	 	const viaje1 = new Viaje()
+	 	viaje1.distancia(960)
+	 	viaje1.tiempoMaximo(8)
+	 	viaje1.pasajeros(4)
+	 	viaje1.coloresIncompatibles(#{"azul","negro"})
+	 	assert.equals(true,viaje1.cumpleElPedido(cachito))
+	 	
+	 	const viaje2 = new Viaje()
+	 	viaje1.distancia(960)
+	 	viaje1.tiempoMaximo(8)
+	 	viaje1.pasajeros(4)
+	 	viaje1.coloresIncompatibles(#{"azul","negro","rojo"})
+	 	assert.equals(false,viaje1.cumpleElPedido(cachito))
+	 	
+	 	const viaje3 = new Viaje()
+	 	viaje1.distancia(960)
+	 	viaje1.tiempoMaximo(6)
+	 	viaje1.pasajeros(4)
+	 	viaje1.coloresIncompatibles(#{"azul","negro"})
+	 	assert.equals(false,viaje1.cumpleElPedido(cachito))
+	 	
+	 }
 	 	
 	 	
 	 	
@@ -52,6 +83,5 @@ test "test de dependencias" {
 	
 		
 		
-	}
+	
 
-}
