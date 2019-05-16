@@ -22,4 +22,5 @@ class Dependencia {
 	method totalPasajeros(){ return registroPedidos.sum({pasajero => pasajero.pasajeros()})}
 	method cuales(){return registroPedidos.filter({pedido => })}
 	method unColor(color){ return registroPedidos.all({registro => registro.coloresIncompatibles().contins(color)})}
+	method relajarPedidos(){ registroPedidos.forEach({pedido => pedido.relajar()})}
 }
